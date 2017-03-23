@@ -1,0 +1,106 @@
+FORMAT: 1A
+HOST: http://api.cakesnaps.com/api/v1/
+
+# api.cakesnaps.com
+
+Cakesnaps is built for anyone who bakes or appreciates good looking food. 
+Share snaps of your latest baking creations, ideas or experiments and receive feedback.
+
+## Cakes Collection [/cakes]
+
+### List All Cakes [GET]
+Display all list of cakes.
+
++ Response 200 (application/json)
+
+
+        {
+            "data": [
+            {
+                "id": "cc093a40-0f6e-11e7-a064-69c053d82853",
+                "name": "Ea repudiandae possimus aut dolorum.",
+                "description": "Voluptatibus vero voluptatum tenetur sed perspiciatis labore inventore. Totam minima consectetur voluptatem placeat doloribus voluptatum quos. Est suscipit explicabo provident ea.",
+                "picture_url": "http://lorempixel.com/720/500/?52395",
+                "slug": "ea-repudiandae-possimus-aut-dolorum",
+                "created_at": "2017-03-23 02:17:00",
+                "created_at_human": "23 seconds ago",
+                "user": {
+                    "data": {
+                        "id": "cc0499d0-0f6e-11e7-b27e-f397ec55e802",
+                        "name": "Ms. Heather Gutmann",
+                        "email": "cletus99@example.org",
+                        "gender": "female",
+                        "timezone": -8,
+                        "location": null,
+                        "picture_url": "http://lorempixel.com/640/480/?85209",
+                        "thumbnail": null,
+                        "bio": "Accusantium nesciunt nesciunt nihil eligendi reiciendis natus et autem omnis ipsam quos fugit impedit aut nihil soluta et assumenda eos nemo laborum incidunt dolorum vero accusantium consequuntur expedita dolorum dolores nihil sed velit tenetur voluptas ut eos quia est molestiae rem occaecati et nesciunt deserunt deleniti sint qui id animi dolor qui amet pariatur est mollitia animi eius earum minima aut sint dolor officiis debitis reprehenderit possimus officiis sed amet eum qui in odit omnis harum error molestias nulla voluptatum necessitatibus qui et laborum repudiandae voluptas aut ut placeat enim pariatur voluptatem dolor hic odio hic dolor minus odit nobis laborum aliquid sapiente dolore doloribus quis molestias facere facilis consequatur et officiis impedit dolorem assumenda sint dolor facilis.",
+                        "birthdate": null
+                    }
+                }
+            },
+            "meta": {
+                
+                "pagination": {
+                    "total": 1,
+                    "count": 1,
+                    "per_page": 5,
+                    "current_page": 1,
+                    "total_pages": 1,
+                    "links": []
+                    
+                }
+            
+            }
+        }
+
+### Create a New Cake [POST]
+
+Authenticated users can able to create a cake instance using this action.
+User's may upload an image during this action.
+
++ Request (application/json)
+
+    + Headers
+            
+            Accept: application/json
+    
+    + Body
+
+            {
+                "name": "First Cake",
+                "description": "Cakes description",
+                "picture_url": "cake.jpg"
+            }
+
++ Response 201 (application/json)
+
+
+    + Body
+
+            {
+                "data": [
+                    {
+                        "id": "cc093a40-0f6e-11e7-a064-69c053d82853",
+                        "name": "Ea repudiandae possimus aut dolorum.",
+                        "description": "Voluptatibus vero voluptatum tenetur sed perspiciatis labore inventore. Totam minima consectetur voluptatem placeat doloribus voluptatum quos. Est suscipit explicabo provident ea.",
+                        "picture_url": "http://lorempixel.com/720/500/?52395",
+                        "slug": "ea-repudiandae-possimus-aut-dolorum",
+                        "created_at": "2017-03-23 02:17:00",
+                        "created_at_human": "23 seconds ago",
+                        "user": {
+                            "data": {
+                                "id": "cc0499d0-0f6e-11e7-b27e-f397ec55e802",
+                                "name": "Ms. Heather Gutmann",
+                                "email": "cletus99@example.org",
+                                "gender": "female",
+                                "timezone": -8,
+                                "location": null,
+                                "picture_url": "http://lorempixel.com/640/480/?85209",
+                                "thumbnail": null,
+                                "bio": "Accusantium nesciunt nesciunt nihil eligendi reiciendis natus et autem omnis ipsam quos fugit impedit aut nihil soluta et assumenda eos nemo laborum incidunt dolorum vero accusantium consequuntur expedita dolorum dolores nihil sed velit tenetur voluptas ut eos quia est molestiae rem occaecati et nesciunt deserunt deleniti sint qui id animi dolor qui amet pariatur est mollitia animi eius earum minima aut sint dolor officiis debitis reprehenderit possimus officiis sed amet eum qui in odit omnis harum error molestias nulla voluptatum necessitatibus qui et laborum repudiandae voluptas aut ut placeat enim pariatur voluptatem dolor hic odio hic dolor minus odit nobis laborum aliquid sapiente dolore doloribus quis molestias facere facilis consequatur et officiis impedit dolorem assumenda sint dolor facilis.",
+                                "birthdate": null
+                            }
+                        }
+                    }
+            }
