@@ -239,7 +239,10 @@ has been violated by the user.
 #Group Categories
 Resources related to categories of cakes in API.
 
-## Categories List [/categories]
+## Categories List [/categories?{pages}]
++ Parameters
+
+    + pages (optional, int) - Display specific page according to specified page number.
 
 ### Get Categories [GET]
 Display all categories of cakes.
@@ -252,11 +255,13 @@ Display all categories of cakes.
             
                 {
                     "name": "First Category",
-                    "description": "First Category description"
+                    "description": "First Category description",
+                    "slug": "first-category"
                 },
                 {
                     "name": "Second Category",
-                    "description": "Second Category description"
+                    "description": "Second Category description",
+                    "slug": "second-category"
                 }   
             
             ],
@@ -291,7 +296,51 @@ This action will display a specific category and show all related cakes.
             "data": [
             
                 "name": "First Category",
-                "description": "First Category description"
+                "description": "First Category description",
+                "slug": "first-category",
+                "cakes": {
+                
+                    "data": [
+                    
+                        {"id": "cc093a40-0f6e-11e7-a064-69c053d82853",
+                        "name": "First Cake.",
+                        "description": "Voluptatibus vero voluptatum tenetur sed perspiciatis labore inventore. Totam minima consectetur voluptatem placeat doloribus voluptatum quos. Est suscipit explicabo provident ea.",
+                        "picture_url": "http://lorempixel.com/720/500/?52395",
+                        "slug": "first-cake",
+                        "created_at": "2017-03-23 02:17:00",
+                        "created_at_human": "23 seconds ago"
+                    ]
+                }
+            ]
+        }
+        
+
+### Create new Category [POST]
+Administrator can create new category of cake.
+
++ Request (application/json)
+
+    + Headers
+        
+            Accept: application/json
+        
+    + Body 
+    
+            {
+            
+                "name": "Create category",
+                "description": "Create category description"
+                
+            }
++ Response 201 (application/json)
+
+        {
+        
+            "data": [
+            
+                "name": "First Category",
+                "description": "First Category description",
+                "slug": "first-category"
                 "cakes": {
                 
                     "data": [
@@ -306,4 +355,55 @@ This action will display a specific category and show all related cakes.
                     ]
                 }
             ]
+        }
+        
+## Update Category [/categories/{slug}]
+
+### Change categories details
+
+Administartor can able to update categories detail.
+
++ Request
+
+    + Headers
+         
+        Accept: Application/json
+        
+    + Body
+    
+        {
+        
+            "name": "Update category",
+            "description": "Update category's description"
+        }
++ Response 201 (application/json)
+
+        {
+          "data": {
+            "name": "Updated Category Name.",
+            "description": "Cum tenetur et ut quaerat voluptas. Ea quia aut aliquid impedit qui. Autem alias iusto odio dolorem aperiam.",
+            "slug": "updated-category-name",
+            "cakes": {
+              "data": [
+                {
+                  "id": "057be8f0-1066-11e7-8df0-45dcddb25cd6",
+                  "name": "Soluta temporibus sint sit voluptatem iusto aut consequuntur et.",
+                  "description": "Vel saepe omnis quae accusamus dolorum modi nostrum. Officiis quas in eos corrupti quod. Voluptas provident ut ipsa laudantium.",
+                  "picture_url": "http://lorempixel.com/720/500/?24316",
+                  "slug": "soluta-temporibus-sint-sit-voluptatem-iusto-aut-consequuntur-et",
+                  "created_at": "2017-03-24 07:46:42",
+                  "created_at_human": "51 minutes ago"
+                },
+                {
+                  "id": "057cd2d0-1066-11e7-9c8f-373efb7398f8",
+                  "name": "Voluptatibus et nulla eligendi necessitatibus et sed.",
+                  "description": "Ipsa sint nulla non esse accusamus quo aliquid et. Occaecati necessitatibus sint quod est.",
+                  "picture_url": "http://lorempixel.com/720/500/?49516",
+                  "slug": "voluptatibus-et-nulla-eligendi-necessitatibus-et-sed",
+                  "created_at": "2017-03-24 07:46:42",
+                  "created_at_human": "51 minutes ago"
+                }
+              ]
+            }
+          }
         }
