@@ -60,7 +60,9 @@ Display all list of cakes.
                     "per_page": 5,
                     "current_page": 1,
                     "total_pages": 1,
-                    "links": []
+                    "links": [
+                        "next": "http://api.cakesnaps.com/api/v1/cakes?page=2"
+                    ]
                     
                 }
             
@@ -243,3 +245,65 @@ Resources related to categories of cakes in API.
 Display all categories of cakes.
 
 + Response 200 (application/json)
+
+        {
+        
+            "data": [
+            
+                {
+                    "name": "First Category",
+                    "description": "First Category description"
+                },
+                {
+                    "name": "Second Category",
+                    "description": "Second Category description"
+                }   
+            
+            ],
+            "meta": {
+                "pagination": {
+                    "total": 2,
+                    "count": 2,
+                    "per_page": 10,
+                    "current_page":1,
+                    "total_pages": 1,
+                    "links": {
+                        "next": "http://api.cakesnaps.com/api/v1/categories?page=2"
+                    }
+                }
+                
+            }
+            
+        }
+        
+## Category [/category/{slug}]
++ Parameters
+
+    + slug (string) - Slug of category in the form of string
+    
+### Display a Single Category[GET]
+This action will display a specific category and show all related cakes.
+
++ Response 200 (application/json)
+
+        {
+        
+            "data": [
+            
+                "name": "First Category",
+                "description": "First Category description"
+                "cakes": {
+                
+                    "data": [
+                    
+                        "id": "cc093a40-0f6e-11e7-a064-69c053d82853",
+                        "name": "First Cake.",
+                        "description": "Voluptatibus vero voluptatum tenetur sed perspiciatis labore inventore. Totam minima consectetur voluptatem placeat doloribus voluptatum quos. Est suscipit explicabo provident ea.",
+                        "picture_url": "http://lorempixel.com/720/500/?52395",
+                        "slug": "first-cake",
+                        "created_at": "2017-03-23 02:17:00",
+                        "created_at_human": "23 seconds ago"
+                    ]
+                }
+            ]
+        }
