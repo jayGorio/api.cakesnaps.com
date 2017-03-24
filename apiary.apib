@@ -6,6 +6,8 @@ HOST: http://api.cakesnaps.com/api/v1/
 Cakesnaps is built for anyone who bakes or appreciates good looking food. 
 Share snaps of your latest baking creations, ideas or experiments and receive feedback.
 
+# Group Cakes
+Resources related to cakes in API.
 ## Cakes List [/cakes{?me}{favorites}{likes}{love}{type}{theme}{pages}]
 
 + Parameters
@@ -14,7 +16,7 @@ Share snaps of your latest baking creations, ideas or experiments and receive fe
     + favorites (optional, boolean) - It will list favorited cakes.
     + likes (optional, boolean) - It will list all liked cakes.
     + love (optional, boolean) - It will list all loved cakes.
-    + type (optional, sting) - Filter all cakes according to category.
+    + type (optional, string) - Filter all cakes according to category.
     + theme (optional, string) - Filter all cakes according to theme.
     + pages (optional, int) - Display specific page according to specified page number.
 
@@ -83,7 +85,7 @@ User's may upload an image during this action.
             {
                 "name": "First Cake",
                 "description": "Cakes description",
-                "picture_url": "cake.jpg"
+                "image": "cake.jpg"
             }
 
 + Response 201 (application/json)
@@ -180,6 +182,15 @@ Updates cake details, including cake's image.
     + Headers
     
             Accept: application/json
+            
+    + Body
+    
+            {
+            
+                "name": "Updated cake",
+                "description": "Updated description.",
+                "image": "anothercakesimage.jpg"
+            }
 
 
 + Response 201 (application/json)
@@ -189,7 +200,7 @@ Updates cake details, including cake's image.
                     {
                         "id": "cc093a40-0f6e-11e7-a064-69c053d82853",
                         "name": "Updated cake.",
-                        "description": "Voluptatibus vero voluptatum tenetur sed perspiciatis labore inventore. Totam minima consectetur voluptatem placeat doloribus voluptatum quos. Est suscipit explicabo provident ea.",
+                        "description": "Updated description",
                         "picture_url": "http://lorempixel.com/720/500/?52395",
                         "slug": "updated-cake",
                         "created_at": "2017-03-23 02:17:00",
@@ -218,7 +229,17 @@ Updates cake details, including cake's image.
     + slug (string) - Slug of cake in the form of string
 
 ### Remove cake [DELETE]
-Administrator may remove created cake using this action if violations 
+Administrator may remove created cake using this action if rules 
 has been violated by the user.
 
 + Response 204 (application/json)
+
+#Group Categories
+Resources related to categories of cakes in API.
+
+## Categories List [/categories]
+
+### Get Categories [GET]
+Display all categories of cakes.
+
++ Response 200 (application/json)
