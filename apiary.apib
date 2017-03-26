@@ -359,23 +359,24 @@ Administrator can create new category of cake.
         
 ## Update Category [/categories/{slug}]
 
-### Change categories details
+### Change categories details [PUT]
 
-Administartor can able to update categories detail.
+Administrator can able to update categories detail.
 
 + Request
 
     + Headers
          
-        Accept: Application/json
+            Accept: Application/json
+        
         
     + Body
     
-        {
-        
-            "name": "Update category",
-            "description": "Update category's description"
-        }
+            {
+            
+                "name": "Update category",
+                "description": "Update category's description"
+            }
 + Response 201 (application/json)
 
         {
@@ -406,4 +407,77 @@ Administartor can able to update categories detail.
               ]
             }
           }
+        }
+        
+# Group User  
+Resources related to Users.
+
+## User List [/users?{active}&{suspended}]
++ Parameters
+
+    + active (optional, boolean) - List all active users.
+    + suspended (optional, boolean) - List all suspended users.
+    
+### Get Users [GET]
+
+Administrator can view all users depending on their status.
+
++ Request 
+
+    + Headers
+    
+            Authorization: Bearer {token}
+
++ Response 200 (application/json)
+
+        {
+        
+            "data" : [
+            
+                {
+                    "id": "055312e0-1066-11e7-b474-4dcaafd259a6",
+                    "name": "Demetrius Herman",
+                    "email": "volkman.edna@example.org",
+                    "gender": "female",
+                    "timezone": -7,
+                    "location": "Port Emily, New York",
+                    "picture_url": "http://lorempixel.com/640/480/?16665",
+                    "thumbnail": null,
+                    "bio": "Omnis tenetur totam itaque reiciendis sed vero culpa in odio ducimus et est corporis nesciunt hic non quidem aperiam quasi magni et voluptatum doloremque tempora veritatis omnis voluptas numquam debitis pariatur sit nesciunt commodi ab quia in sit aut ut ut exercitationem et quis sit repellat velit est officiis cum itaque fuga rem rerum iste rerum assumenda cum impedit provident rem temporibus dolorem vel sapiente cumque magnam velit ducimus ea et quas perferendis at voluptate et aperiam qui omnis dicta impedit neque.",
+                    "birthdate": null,
+                    "cakes": {
+                        "data": []
+                    }
+                },
+                {
+                
+                     "id": "056822f0-1066-11e7-9463-254ec642b045",
+                    "name": "Jacquelyn Gaylord",
+                    "email": "sydney.gutkowski@example.org",
+                    "gender": "female",
+                     "timezone": -2,
+                    "location": "New Kristoferfurt, Michigan",
+                    "picture_url": "http://lorempixel.com/640/480/?57874",
+                    "thumbnail": null,
+                    "bio": "Nostrum id cupiditate iusto dolore omnis esse dicta labore molestias qui quasi nobis sint nulla in quod asperiores officia non consequatur incidunt amet numquam iste voluptatem cumque magni dicta et impedit mollitia aperiam dicta sunt voluptatibus aspernatur reprehenderit et sed soluta minus iste sequi sed maxime quasi blanditiis autem vel explicabo aperiam tempore adipisci est rerum tempore culpa et eos repudiandae ipsa non et soluta nesciunt distinctio a eveniet aperiam quidem error dicta sapiente maiores nam officiis nihil at sed eum quasi nemo voluptatem porro non error eum enim.",
+                    "birthdate": null,
+                    "cakes": {
+                        "data": []
+                    }
+                }
+            ], 
+            
+            "meta" : {
+            
+                "pagination": {
+                    "total": 2,
+                    "count": 20,
+                    "per_page": 20,
+                    "current_page": 1,
+                    "total_pages": 4,
+                    "links": {
+                        "next": "http://api.cakesnaps.com/api/v1/users?page=2"
+                    }
+                }
+            }
         }
