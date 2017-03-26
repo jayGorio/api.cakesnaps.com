@@ -451,11 +451,11 @@ Administrator can view all users depending on their status.
                 },
                 {
                 
-                     "id": "056822f0-1066-11e7-9463-254ec642b045",
+                    "id": "056822f0-1066-11e7-9463-254ec642b045",
                     "name": "Jacquelyn Gaylord",
                     "email": "sydney.gutkowski@example.org",
                     "gender": "female",
-                     "timezone": -2,
+                    "timezone": -2,
                     "location": "New Kristoferfurt, Michigan",
                     "picture_url": "http://lorempixel.com/640/480/?57874",
                     "thumbnail": null,
@@ -481,3 +481,31 @@ Administrator can view all users depending on their status.
                 }
             }
         }
+
+## Get User [/user]
+Will fetch a single user.
+
+### Display User [GET]
+
++ Request 
+
+    + Headers 
+    
+            Authorization: Bearer {token}
+
++ Response 200 (application/json)
+
+    + Attributes
+        - Include User
+        
+# Data Structures
+
+## User (object)
+- name: `Jearson Gomez` (string,required) - Name of user.
+- email: `4ksoftware@example.io` (string, required) - Email of user.
+- active: true (boolean, optional) - Status of user account.
+- gender: `male` (string, optional) - Gender of user.
+- timezone: 8 (number, optional) - Region of user who uploaded/created cake page.
+- picture_url: `s3.amazon\images` (string, optional) - Path of the profile image of user on s3 Amazon.
+- bio: `A computer technicain..` (string, optional) - Biography of user.
+- birthdate: `March 3, 1994` (optional) - Birthdate of user.
