@@ -314,9 +314,10 @@ This action will display a specific category and show all related cakes.
             ]
         }
         
-## Create New Category [/category]
+## Create New Category [/categories]
+
 ### Post Category [POST]
-Administrator can create new category of cake.
+Administrator can able to create categories of cake.
 
 + Request (application/json)
 
@@ -358,8 +359,10 @@ Administrator can create new category of cake.
         }
         
 ## Update Category [/categories/{slug}]
++ Parameters 
+    + slug: `first-category` - The unique slug of category.
 
-### Change categories details [PUT]
+### Change category details [PUT]
 
 Administrator can able to update categories detail.
 
@@ -367,7 +370,7 @@ Administrator can able to update categories detail.
 
     + Headers
          
-            Accept: Application/json
+            Accept: application/json
         
         
     + Body
@@ -377,36 +380,37 @@ Administrator can able to update categories detail.
                 "name": "Update category",
                 "description": "Update category's description"
             }
+            
 + Response 201 (application/json)
 
         {
-          "data": {
-            "name": "Updated Category Name.",
-            "description": "Cum tenetur et ut quaerat voluptas. Ea quia aut aliquid impedit qui. Autem alias iusto odio dolorem aperiam.",
-            "slug": "updated-category-name",
-            "cakes": {
-              "data": [
-                {
-                  "id": "057be8f0-1066-11e7-8df0-45dcddb25cd6",
-                  "name": "Soluta temporibus sint sit voluptatem iusto aut consequuntur et.",
-                  "description": "Vel saepe omnis quae accusamus dolorum modi nostrum. Officiis quas in eos corrupti quod. Voluptas provident ut ipsa laudantium.",
-                  "picture_url": "http://lorempixel.com/720/500/?24316",
-                  "slug": "soluta-temporibus-sint-sit-voluptatem-iusto-aut-consequuntur-et",
-                  "created_at": "2017-03-24 07:46:42",
-                  "created_at_human": "51 minutes ago"
-                },
-                {
-                  "id": "057cd2d0-1066-11e7-9c8f-373efb7398f8",
-                  "name": "Voluptatibus et nulla eligendi necessitatibus et sed.",
-                  "description": "Ipsa sint nulla non esse accusamus quo aliquid et. Occaecati necessitatibus sint quod est.",
-                  "picture_url": "http://lorempixel.com/720/500/?49516",
-                  "slug": "voluptatibus-et-nulla-eligendi-necessitatibus-et-sed",
-                  "created_at": "2017-03-24 07:46:42",
-                  "created_at_human": "51 minutes ago"
+            "data": {
+                "name": "Updated Category Name.",
+                "description": "Cum tenetur et ut quaerat voluptas. Ea quia aut aliquid impedit qui. Autem alias iusto odio dolorem aperiam.",
+                "slug": "updated-category-name",
+                "cakes": {
+                    "data": [
+                        {
+                          "id": "057be8f0-1066-11e7-8df0-45dcddb25cd6",
+                          "name": "Soluta temporibus sint sit voluptatem iusto aut consequuntur et.",
+                          "description": "Vel saepe omnis quae accusamus dolorum modi nostrum. Officiis quas in eos corrupti quod. Voluptas provident ut ipsa laudantium.",
+                          "picture_url": "http://lorempixel.com/720/500/?24316",
+                          "slug": "soluta-temporibus-sint-sit-voluptatem-iusto-aut-consequuntur-et",
+                          "created_at": "2017-03-24 07:46:42",
+                          "created_at_human": "51 minutes ago"
+                        },
+                        {
+                          "id": "057cd2d0-1066-11e7-9c8f-373efb7398f8",
+                          "name": "Voluptatibus et nulla eligendi necessitatibus et sed.",
+                          "description": "Ipsa sint nulla non esse accusamus quo aliquid et. Occaecati necessitatibus sint quod est.",
+                          "picture_url": "http://lorempixel.com/720/500/?49516",
+                          "slug": "voluptatibus-et-nulla-eligendi-necessitatibus-et-sed",
+                          "created_at": "2017-03-24 07:46:42",
+                          "created_at_human": "51 minutes ago"
+                        }
+                    ]
                 }
-              ]
             }
-          }
         }
         
 #Group User  
